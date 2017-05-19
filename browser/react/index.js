@@ -9,10 +9,12 @@ import Artist from './components/Artist';
 import Songs from './components/Songs';
 import NewPlaylistContainer from './containers/NewPlaylistContainer';
 import Playlist from './components/Playlist';
+import LyricsContainer from './containers/LyricsContainer';
 
 ReactDOM.render(
   <Router history={hashHistory}>
     <Route path='/' component={AppContainer} foo={'foo'}>
+      <Route path='/lyrics' component={LyricsContainer} />
       <Route path="/albums" component={Albums} />
       <Route path="/albums/:albumId" component={Album} />
       <Route path="/artists" component={FilterableArtistsContainer} />
@@ -30,17 +32,17 @@ ReactDOM.render(
 
 
 
-import store from './store';
-import {setLyrics} from './action-creators/lyrics';
+// import store from './store';
+// import {setLyrics} from './action-creators/lyrics';
 
-const unsubscribe = store.subscribe(function () {
-    console.log('----------------');
-    console.log('State changed!!', store.getState());
-});
+// const unsubscribe = store.subscribe(function () {
+//     console.log('----------------');
+//     console.log('State changed!!', store.getState());
+// });
 
-store.dispatch(setLyrics('I can feel it coming in the air tonight ... hold on ...'));
-store.dispatch(setLyrics('Never gonna give you up, never gonna let you down'));
+// store.dispatch(setLyrics('I can feel it coming in the air tonight ... hold on ...'));
+// store.dispatch(setLyrics('Never gonna give you up, never gonna let you down'));
 
-unsubscribe();
+// unsubscribe();
 
-store.dispatch(setLyrics('Hello, darkness, my old friend.'));
+// store.dispatch(setLyrics('Hello, darkness, my old friend.'));
